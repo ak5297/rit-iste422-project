@@ -1,0 +1,18 @@
+/* compile java, run tests, copy static resources,
+ * format test results, build a JAR, create a top-level
+ * task that does all these things */
+
+ apply plugin: 'java'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'commons-codec:commons-codec:1.6'
+}
+
+task raven(type: JavaExec) {
+ 	main = 'org.gradle.poetry.Poetry'
+	classpath = sourceSets.main.runtimeClasspath
+}
